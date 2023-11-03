@@ -1,0 +1,7 @@
+C:\programs\Rentify\rentify\obj\Release\net6.0\PubTmp\Out\rentify.exe
+C:\programs\Rentify\rentify\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
+C:\programs\Rentify\rentify\obj\Release\net6.0\PubTmp\Out\appsettings.json
+C:\programs\Rentify\rentify\obj\Release\net6.0\PubTmp\Out\rentify.dll
+C:\programs\Rentify\rentify\obj\Release\net6.0\PubTmp\Out\rentify.deps.json
+C:\programs\Rentify\rentify\obj\Release\net6.0\PubTmp\Out\rentify.runtimeconfig.json
+C:\programs\Rentify\rentify\obj\Release\net6.0\PubTmp\Out\rentify.pdb

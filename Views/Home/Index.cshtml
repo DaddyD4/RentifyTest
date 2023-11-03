@@ -1,0 +1,928 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div id="__next">
+    <script>
+
+        function isFromEmailCampaign() {
+            if (typeof window === 'undefined') {
+                return false;
+            }
+
+            try {
+                const queryString = window.location.href.split('?')[1] || '';
+                const params = new URLSearchParams(queryString);
+                const ecampaignParam = params.get('ecampaign');
+
+                return !!(ecampaignParam && ecampaignParam.startsWith('eml'));
+            } catch {
+                return false;
+            }
+        }
+
+        const SeoHostList = [
+            'www.google.com',
+            'www.bing.com',
+            'www.yahoo.com',
+            'www.yandex.com',
+            'www.duckduckgo.com',
+        ];
+
+        function isSeoTraffic() {
+            if (typeof window === 'undefined') {
+                return false;
+            }
+
+            try {
+                const refererUrl = new URL(document.referrer);
+                return SeoHostList.indexOf(refererUrl.hostname) !== -1;
+            } catch {
+                return false;
+            }
+        };
+
+        function isSafariBrowser(ua) {
+            return !!/^((?!chrome|android|crios|firefox|fxios|edg|yabrowser).)*safari/i.test(
+                ua
+            );
+        }
+
+        function isMacintoshDesktop(ua) {
+            return ua && ua.indexOf('Macintosh') > -1;
+        }
+
+        function isGTEVersion(ua, v) {
+            v = v || 11;
+
+            const match = /version\/([^ ]*)/i.exec(ua);
+            if (match && match[1]) {
+                try {
+                    const version = parseFloat(match[1]);
+                    if (version >= v) {
+                        return true;
+                    }
+                } catch (e) {
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        function isSafari13OrGreateriPad(ua) {
+            return (
+                ua &&
+                isSafariBrowser(ua) &&
+                isMacintoshDesktop(ua) &&
+                isGTEVersion(ua, 13) &&
+                screen.height > screen.width
+            );
+        }
+
+        function isMobileUserAgent() {
+            if (typeof window === 'undefined') {
+                return false;
+            }
+
+            const ua = navigator.userAgent;
+            if (ua.match(/android/i)) {
+                return true;
+            }
+            if (ua.match(/ipad/i) || isSafari13OrGreateriPad(ua)) {
+                return true;
+            }
+            if (ua.match(/i(os|p(hone|od))/i)) {
+                return true;
+            }
+            if (ua.match(/\(BB[1-9][0-9]*\;/i)) {
+                return true;
+            }
+            if (ua.match(/Windows Phone/i)) {
+                return true;
+            }
+            if (
+                ua.match(/Kindle/i) ||
+                ua.match(/Silk/i) ||
+                ua.match(/KFTT/i) ||
+                ua.match(/KFOT/i) ||
+                ua.match(/KFJWA/i) ||
+                ua.match(/KFJWI/i) ||
+                ua.match(/KFSOWI/i) ||
+                ua.match(/KFTHWA/i) ||
+                ua.match(/KFTHWI/i) ||
+                ua.match(/KFAPWA/i) ||
+                ua.match(/KFAPWI/i)
+            ) {
+                return true;
+            }
+            return false;
+        }
+
+    </script>
+    <noscript>
+        <div style="position:fixed;top:0;left:0;display:none;width:0;height:0"><img alt="px pixel" loading="lazy" width="1" height="1" decoding="async" data-nimg="1" style="color:transparent" src="//collector-PXYO6YjwLb.px-cloud.net/api/v1/collector/noScript.gif?appId=PXYO6YjwLb" /></div>
+    </noscript>
+    <div>
+
+        <main id="main-content">
+            <div style="overflow:visible" class="FlexContainers__Rows-sc-d0e49f72-0 cqtAIt">
+                <div style="position:relative" class="FlexContainers__Row-sc-d0e49f72-1 hYsskf"> 
+                    <div height="442px,442px,485px,512px,600px" type="hero" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 sc-a6ba821b-0 kiFiBl klztFC">
+                        <img loading="auto" decoding="sync" fetchpriority="high" alt="residents of the neighborhood standing on steps in a tree covered street" src="images/shore-residences1.jpg" srcSet="images/shore-residences1.jpg 390w, images/shore-residences1.jpg 570w, images/shore-residences1.jpg 768w, images/shore-residences1.jpg 993w, images/shore-residences1.jpg 50w, images/shore-residences1.jpg 300w, images/shore-residences1.jpg 600w, images/shore-residences1.jpg 1000w" id="homepage-banner-image" sizes="
+  (max-width: 569px) and (-webkit-min-device-pixel-ratio: 3) 25px,
+  (min-width: 570px) and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 3) 75px,
+  (min-width: 768px) and (max-width: 992px) and (-webkit-min-device-pixel-ratio: 3) 300px,
+
+  (max-width: 569px) and (-webkit-min-device-pixel-ratio: 2) 50px,
+  (min-width: 570px) and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 2) 150px,
+  (min-width: 768px) and (max-width: 992px) and (-webkit-min-device-pixel-ratio: 2) 300px,
+
+  (max-width: 569px) and (-webkit-device-pixel-ratio: 1) 390px,
+  (min-width: 570px) and (max-width: 767px) and (-webkit-device-pixel-ratio: 1) 570px,
+  (min-width: 768px) and (max-width: 992px) and (-webkit-device-pixel-ratio: 1) 768px,
+  (min-width: 993px) and (-webkit-device-pixel-ratio: 1) 993px,
+  1000px
+  " class="Image__ImageContainer-sc-776ebfb1-0 lhyrno" />
+                    </div><div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                        <div align="center" style="overflow:visible" class="FlexContainers__Rows-sc-d0e49f72-0 kPxQeN Tiles__TileForeground-sc-acb4d428-2 sc-7462c3b7-0 fgAtbl kvBOCN">
+                            <div class="FlexContainers__Row-sc-d0e49f72-1 hYsskf">
+                                <h1 style="margin:0 0 48px">
+                                    <div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 kVtMrc gtvmjT"><div style="text-shadow:0 0px 5px rgba(0, 0, 0, 1)" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 ePuETu gtvmjT">Discover a place <br /> you&#x27;ll love to live</div></div>
+                                </h1>
+                            </div><div class="FlexContainers__Row-sc-d0e49f72-1 hYsskf">
+                                <div role="group" aria-label="search type" class="sc-7462c3b7-1 fjJhcT">
+                                    <button type="button" data-testid="tab-button-buy" aria-pressed="true" class="ButtonBase-sc-ca7e2680-0 cNJlGF SecondaryButton-sc-9d86dd6a-0 hHfBrw sc-f6b9dcad-0 gQeDpO">
+                                        <div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 ewcDjf gtvmjT">Buy</div>
+                                    </button><button type="button" data-testid="tab-button-rent" aria-pressed="false" class="ButtonBase-sc-ca7e2680-0 cNJlGF SecondaryButton-sc-9d86dd6a-0 hHfBrw sc-f6b9dcad-0 eRqKqK"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 fBIFBh gtvmjT">Rent</div></button><button type="button" data-testid="tab-button-sold" aria-pressed="false" class="ButtonBase-sc-ca7e2680-0 cNJlGF SecondaryButton-sc-9d86dd6a-0 hHfBrw sc-f6b9dcad-0 eRqKqK"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 fBIFBh gtvmjT">Sold</div></button>
+                                </div>
+                            </div><div class="sc-f94b7230-0 WSpdi">
+                                <div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                    <div color="default" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 laeVWx gtvmjT">
+                                        <div class="sc-f94b7230-1 dRmnD">
+                                            <div class="horizontalContainer" style="width:100%;height:100%">
+                                                <div style="flex:1;height:100%" data-auto-test-id="searchAutosuggest">
+                                                    <div tabindex="-1" class="LocationAutosuggestDrodown__LocationAutosuggestBoxContainer-sc-1bb12592-3 dCMbJH">
+                                                        <div class="react-autosuggest__container">
+                                                            <div class="AutosuggestInput__MainContainer-sc-e8042cbf-2">
+                                                                <div class="FlexContainers__Columns-sc-d0e49f72-2 iKQvjL">
+                                                                    <div class="AutosuggestInput__InputContainer-sc-e8042cbf-1 eRizhk">
+                                                                        <input data-testid="location-search-input" type="text" autoComplete="off" role="combobox" aria-controls="react-autowhatever-home-banner" aria-expanded="false" aria-owns="react-autowhatever-home-banner" class="AutosuggestInput__Input-sc-e8042cbf-0 doCukb react-autosuggest__input" placeholder="Search for City, Neighborhood, Zip, County, School" name="location-search" aria-label="Search for City, Neighborhood, Zip, County, School" id="banner-search" value="Shore Residences" /><div role="button" tabindex="0" aria-label="clear search" data-testid="location-search-clear" value="Oakland, CA" class="AutosuggestInput__RightInnerIcon-sc-e8042cbf-3 kyKvys">
+                                                                            <div class="getUiSvgContainer__SvgContainer-sc-3c9612d7-0 buYXAY"><svg role="img" aria-label="" aria-hidden="true" class="svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M27.816 25.935l-1.881 1.88-21.83-21.83 1.88-1.88 21.83 21.83zm-1.881-21.83l1.88 1.88-21.83 21.83-1.88-1.88 21.83-21.83z" fill="#869099"></path></svg></div>
+                                                                        </div><div role="button" aria-label="submit search" data-testid="location-search-button" tabindex="0" class="Box__BoxElement-sc-9529e829-0 bjkomQ BoxButton-sc-155631a2-0 AutosuggestInput__RightIcon-sc-e8042cbf-5 bSUoRr jEgIuP">
+                                                                            <div class="getUiSvgContainer__SvgContainer-sc-3c9612d7-0 eRiUtW">
+                                                                                <svg role="img" aria-label="" aria-hidden="true" class="svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M20.756 18.876l6.155 6.154-1.88 1.881-6.155-6.155A9.269 9.269 0 0 1 13.3 22.61a9.31 9.31 0 1 1 9.31-9.31c0 2.091-.69 4.021-1.854 5.576zM13.3 19.95a6.65 6.65 0 1 0 0-13.3 6.65 6.65 0 0 0 0 13.3z" fill="#869099"></path></svg>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div><div id="react-autowhatever-home-banner" class="AutosuggestDropdown__LocationAutosuggestDropdown-sc-d7b5939c-0 fVrUmR react-autosuggest__suggestions-container"><div class="AutosuggestDropdown__ScrollContainer-sc-d7b5939c-1 fLTqSg"></div></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <div class="Padding-sc-bf66b591-0 sc-7462c3b7-2 hUxWol dOuJPr">
+        <div style="margin-bottom:8px" class="sc-918278a6-0 kvzQhZ">
+            <div r="s" class="Padding-sc-bf66b591-0 cfjEhq">
+                <div class="sc-1d31997f-0 qoYY"><h2 style="margin:0 0 8px 0" align="center" lines="2"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 ingDZ gtvmjT">Explore homes on Rentify</div></h2></div><div class="sc-1d31997f-1 kjcYmA">
+                    <div style="text-align:center;padding:8px 0" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT">
+                        Take a deep dive and browse homes for sale, original neighborhood photos, resident reviews and local insights
+                        to find what is right for you.
+                    </div>
+                </div>
+            </div>
+        </div><div class="FlexContainers__Rows-sc-d0e49f72-0 bzoYKP">
+            <div class="ContentSlider__ContentSliderContainer-sc-6522bfdc-1 kbGLmc">
+                <div role="button" class="Box__BoxElement-sc-9529e829-0 bjkomQ BoxButton-sc-155631a2-0 jTslXf ContentSlider__SkipLink-sc-6522bfdc-8 cqVjNe" tabindex="0"><div color="highlight" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 diAvex gtvmjT Anchor__StyledText-sc-fead93c0-0 fefLHJ">Skip to last item</div></div><div class="ContentSlider__OverflowContainer-sc-6522bfdc-2 gNXDYa">
+                    <ul class="Grid__GridContainer-sc-6b10767f-1 fMtReY ContentSlider__ScrollContainer-sc-6522bfdc-3 fMOkgu">
+                        <li class="Grid__CellBox-sc-6b10767f-0 ContentSlider__StyledCell-sc-6522bfdc-0 cSbzqm fPzLDn">
+                            <div class="FlexContainers__Column-sc-d0e49f72-3 leepcY">
+                                <div>
+                                    <a href="/GA/Atlanta/" data-testid="homepage-ndp-card" class="BoxLink-sc-f46643c5-0 hqcAtn">
+                                        <div height="400" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 sc-4a0c4302-0 gPCNSc eNINUo">
+                                            <div tabindex="-1" height="100%" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 HeroCard__HeroTile-sc-b54ab541-0 cpTdvw gUFaqi">
+                                                <div class="Tiles__TileBackground-sc-acb4d428-0 bfDsir">
+                                                    <img loading="lazy" decoding="async" src="images/unit/airresidences.jpg" alt="airresidences"  />
+                                                </div>
+                                                <div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                    <div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                        <div class="FlexContainers__Rows-sc-d0e49f72-0 cqtAIt Tiles__TileForeground-sc-acb4d428-2 HeroCard__HeroForeground-sc-b54ab541-3 fwcvtM bijWbg">
+                                                            <div class="Tiles__TileHeader-sc-acb4d428-3 bWliUV"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT HeroCard__HeroSubHeading-sc-b54ab541-2 bqWcSB"></div><h4 style="margin:0 0 8px 0" class="HeroCard__HeroHeading-sc-b54ab541-1 dTqftx"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 eCzGjR gtvmjT">Air Residences</div></h4></div>
+                                                            <div class="FlexContainers__Row-sc-d0e49f72-1 Tiles__TileContent-sc-acb4d428-4 hYsskf bGAnbK"></div>
+                                                            <div class="Tiles__TileFooter-sc-acb4d428-5 HeroCard__HeroFooter-sc-b54ab541-4 AavND huLONg">
+                                                                <div color="default" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 laeVWx gtvmjT">
+                                                                    <div class="MediaBlock__MediaContainer-sc-ad2f5bfc-0 caedLv">
+                                                                        <div class="MediaBlock__MediaContent-sc-ad2f5bfc-1 ikaifl">
+                                                                            <div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT">View Homes</div>
+                                                                        </div><div class="getUiSvgContainer__SvgContainer-sc-3c9612d7-0 emjeJJ"><svg role="img" aria-label="" aria-hidden="true" class="svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M17.65 16.513l-7.147-7.055 1.868-1.893 9.068 8.951-9.069 8.927-1.866-1.896z" fill="#869099"></path></svg></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="Grid__CellBox-sc-6b10767f-0 ContentSlider__StyledCell-sc-6522bfdc-0 cSbzqm fPzLDn">
+                            <div class="FlexContainers__Column-sc-d0e49f72-3 leepcY">
+                                <div>
+                                    <div data-testid="homepage-ndp-card" class="Box__BoxElement-sc-9529e829-0 bjkomQ">
+                                        <div height="192" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 sc-4a0c4302-0 hIJqfi eNINUo">
+                                            <div color="rgb(107,119,128)" class="Tiles__TileBackground-sc-acb4d428-0 sc-4a0c4302-4 bfDsir fqLwzn"></div>
+                                            <div class="Tiles__TileBackground-sc-acb4d428-0 bfDsir">
+                                                <img loading="lazy" decoding="async" src="images/unit/blue-residences-banner.jpg" alt="" class="Image__ImageContainer-sc-776ebfb1-0 gGipxX" />
+                                            </div>
+                                            <div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                <div class="FlexContainers__Rows-sc-d0e49f72-0 cqtAIt Tiles__TileForeground-sc-acb4d428-2 sc-4a0c4302-3 fgAtbl hsFEiv">
+                                                    <div class="Tiles__TileHeader-sc-acb4d428-3 bWliUV">
+                                                        <h4 class="sc-4a0c4302-1 kPspZe">Rentify User</h4><div class="sc-4a0c4302-2 fSKevZ">Bue Residences<!-- --> Resident</div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <a href="/TX/Austin/" data-testid="homepage-ndp-card" class="BoxLink-sc-f46643c5-0 hqcAtn">
+                                        <div height="192" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 sc-4a0c4302-0 hIJqfi eNINUo">
+                                            <div tabindex="-1" height="100%" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 HeroCard__HeroTile-sc-b54ab541-0 cpTdvw gUFaqi">
+                                                <div class="Tiles__TileBackground-sc-acb4d428-0 bfDsir">
+                                                    <img loading="lazy" decoding="async" src="images/unit/berkeley-residences-banner.jpg" alt="" class="Image__ImageContainer-sc-776ebfb1-0 gGipxX" />
+                                                </div>
+                                                <div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                    <div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                        <div class="FlexContainers__Rows-sc-d0e49f72-0 cqtAIt Tiles__TileForeground-sc-acb4d428-2 HeroCard__HeroForeground-sc-b54ab541-3 fwcvtM bijWbg">
+                                                            <div class="Tiles__TileHeader-sc-acb4d428-3 bWliUV">
+                                                                <div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT HeroCard__HeroSubHeading-sc-b54ab541-2 bqWcSB"></div><h4 style="margin:0 0 8px 0" class="HeroCard__HeroHeading-sc-b54ab541-1 dTqftx">
+                                                                    <div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 eCzGjR gtvmjT">Berkeley residences</div>
+                                                                </h4>
+                                                            </div><div class="FlexContainers__Row-sc-d0e49f72-1 Tiles__TileContent-sc-acb4d428-4 hYsskf bGAnbK"></div>
+                                                            <div class="Tiles__TileFooter-sc-acb4d428-5 HeroCard__HeroFooter-sc-b54ab541-4 AavND huLONg">
+                                                                <div color="default" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 laeVWx gtvmjT">
+                                                                    <div class="MediaBlock__MediaContainer-sc-ad2f5bfc-0 caedLv">
+                                                                        <div class="MediaBlock__MediaContent-sc-ad2f5bfc-1 ikaifl"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT">View Homes</div></div>
+                                                                        <div class="getUiSvgContainer__SvgContainer-sc-3c9612d7-0 emjeJJ"><svg role="img" aria-label="" aria-hidden="true" class="svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M17.65 16.513l-7.147-7.055 1.868-1.893 9.068 8.951-9.069 8.927-1.866-1.896z" fill="#869099"></path></svg></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="Grid__CellBox-sc-6b10767f-0 ContentSlider__StyledCell-sc-6522bfdc-0 cSbzqm fPzLDn">
+                            <div class="FlexContainers__Column-sc-d0e49f72-3 leepcY">
+                                <div>
+                                    <a href="/AZ/Scottsdale/" data-testid="homepage-ndp-card" class="BoxLink-sc-f46643c5-0 hqcAtn">
+                                        <div height="192" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 sc-4a0c4302-0 hIJqfi eNINUo">
+                                            <div tabindex="-1" height="100%" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 HeroCard__HeroTile-sc-b54ab541-0 cpTdvw gUFaqi">
+                                                <div class="Tiles__TileBackground-sc-acb4d428-0 bfDsir"><img loading="lazy" decoding="async" src="images/unit/bloom-residences-banner.jpg" alt="" class="Image__ImageContainer-sc-776ebfb1-0 gGipxX" /></div>
+                                                <div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                    <div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                        <div class="FlexContainers__Rows-sc-d0e49f72-0 cqtAIt Tiles__TileForeground-sc-acb4d428-2 HeroCard__HeroForeground-sc-b54ab541-3 fwcvtM bijWbg">
+                                                            <div class="Tiles__TileHeader-sc-acb4d428-3 bWliUV"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT HeroCard__HeroSubHeading-sc-b54ab541-2 bqWcSB"></div><h4 style="margin:0 0 8px 0" class="HeroCard__HeroHeading-sc-b54ab541-1 dTqftx"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 eCzGjR gtvmjT">Bloom residences</div></h4></div>
+                                                            <div class="FlexContainers__Row-sc-d0e49f72-1 Tiles__TileContent-sc-acb4d428-4 hYsskf bGAnbK"></div><div class="Tiles__TileFooter-sc-acb4d428-5 HeroCard__HeroFooter-sc-b54ab541-4 AavND huLONg">
+                                                                <div color="default" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 laeVWx gtvmjT">
+                                                                    <div class="MediaBlock__MediaContainer-sc-ad2f5bfc-0 caedLv">
+                                                                        <div class="MediaBlock__MediaContent-sc-ad2f5bfc-1 ikaifl"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT">View Homes</div></div><div class="getUiSvgContainer__SvgContainer-sc-3c9612d7-0 emjeJJ">
+                                                                            <svg role="img" aria-label="" aria-hidden="true" class="svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M17.65 16.513l-7.147-7.055 1.868-1.893 9.068 8.951-9.069 8.927-1.866-1.896z" fill="#869099"></path></svg>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div><div>
+                                    <a href="/MA/Boston/" data-testid="homepage-ndp-card" class="BoxLink-sc-f46643c5-0 hqcAtn">
+                                        <div height="192" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 sc-4a0c4302-0 hIJqfi eNINUo">
+                                            <div tabindex="-1" height="100%" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 HeroCard__HeroTile-sc-b54ab541-0 cpTdvw gUFaqi">
+                                                <div class="Tiles__TileBackground-sc-acb4d428-0 bfDsir"><img loading="lazy" decoding="async" src="images/unit/breeze-residences-banner.jpg" alt="" class="Image__ImageContainer-sc-776ebfb1-0 gGipxX" /></div><div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                    <div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                        <div class="FlexContainers__Rows-sc-d0e49f72-0 cqtAIt Tiles__TileForeground-sc-acb4d428-2 HeroCard__HeroForeground-sc-b54ab541-3 fwcvtM bijWbg">
+                                                            <div class="Tiles__TileHeader-sc-acb4d428-3 bWliUV"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT HeroCard__HeroSubHeading-sc-b54ab541-2 bqWcSB"></div><h4 style="margin:0 0 8px 0" class="HeroCard__HeroHeading-sc-b54ab541-1 dTqftx"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 eCzGjR gtvmjT">Breeze residences</div></h4></div>
+                                                            <div class="FlexContainers__Row-sc-d0e49f72-1 Tiles__TileContent-sc-acb4d428-4 hYsskf bGAnbK"></div><div class="Tiles__TileFooter-sc-acb4d428-5 HeroCard__HeroFooter-sc-b54ab541-4 AavND huLONg">
+                                                                <div color="default" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 laeVWx gtvmjT">
+                                                                    <div class="MediaBlock__MediaContainer-sc-ad2f5bfc-0 caedLv">
+                                                                        <div class="MediaBlock__MediaContent-sc-ad2f5bfc-1 ikaifl"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT">View Homes</div></div><div class="getUiSvgContainer__SvgContainer-sc-3c9612d7-0 emjeJJ">
+                                                                            <svg role="img" aria-label="" aria-hidden="true" class="svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M17.65 16.513l-7.147-7.055 1.868-1.893 9.068 8.951-9.069 8.927-1.866-1.896z" fill="#869099"></path></svg>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="Grid__CellBox-sc-6b10767f-0 ContentSlider__StyledCell-sc-6522bfdc-0 cSbzqm fPzLDn">
+                            <div class="FlexContainers__Column-sc-d0e49f72-3 leepcY">
+                                <div>
+                                    <a href="/CA/Oakland/" data-testid="homepage-ndp-card" class="BoxLink-sc-f46643c5-0 hqcAtn">
+                                        <div height="400" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 sc-4a0c4302-0 gPCNSc eNINUo">
+                                            <div tabindex="-1" height="100%" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 HeroCard__HeroTile-sc-b54ab541-0 cpTdvw gUFaqi">
+                                                <div class="Tiles__TileBackground-sc-acb4d428-0 bfDsir"><img loading="lazy" decoding="async" src="images/unit/calm-residences-banner.jpg" alt="" class="Image__ImageContainer-sc-776ebfb1-0 gGipxX" /></div>
+                                                <div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                    <div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                        <div class="FlexContainers__Rows-sc-d0e49f72-0 cqtAIt Tiles__TileForeground-sc-acb4d428-2 HeroCard__HeroForeground-sc-b54ab541-3 fwcvtM bijWbg">
+                                                            <div class="Tiles__TileHeader-sc-acb4d428-3 bWliUV"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT HeroCard__HeroSubHeading-sc-b54ab541-2 bqWcSB"></div><h4 style="margin:0 0 8px 0" class="HeroCard__HeroHeading-sc-b54ab541-1 dTqftx"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 eCzGjR gtvmjT">Calm residences</div></h4></div>
+                                                            <div class="FlexContainers__Row-sc-d0e49f72-1 Tiles__TileContent-sc-acb4d428-4 hYsskf bGAnbK"></div>
+                                                            <div class="Tiles__TileFooter-sc-acb4d428-5 HeroCard__HeroFooter-sc-b54ab541-4 AavND huLONg">
+                                                                <div color="default" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 laeVWx gtvmjT">
+                                                                    <div class="MediaBlock__MediaContainer-sc-ad2f5bfc-0 caedLv">
+                                                                        <div class="MediaBlock__MediaContent-sc-ad2f5bfc-1 ikaifl"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT">View Homes</div></div><div class="getUiSvgContainer__SvgContainer-sc-3c9612d7-0 emjeJJ"><svg role="img" aria-label="" aria-hidden="true" class="svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M17.65 16.513l-7.147-7.055 1.868-1.893 9.068 8.951-9.069 8.927-1.866-1.896z" fill="#869099"></path></svg></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="Grid__CellBox-sc-6b10767f-0 ContentSlider__StyledCell-sc-6522bfdc-0 cSbzqm fPzLDn">
+                            <div class="FlexContainers__Column-sc-d0e49f72-3 leepcY">
+                                <div>
+                                    <a href="/GA/Sandy_Springs/" data-testid="homepage-ndp-card" class="BoxLink-sc-f46643c5-0 hqcAtn">
+                                        <div height="192" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 sc-4a0c4302-0 hIJqfi eNINUo">
+                                            <div tabindex="-1" height="100%" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 HeroCard__HeroTile-sc-b54ab541-0 cpTdvw gUFaqi">
+                                                <div class="Tiles__TileBackground-sc-acb4d428-0 bfDsir"><img loading="lazy" decoding="async" src="images/unit/charm-residences-banner.jpg" alt="" class="Image__ImageContainer-sc-776ebfb1-0 gGipxX" /></div>
+                                                <div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                    <div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                        <div class="FlexContainers__Rows-sc-d0e49f72-0 cqtAIt Tiles__TileForeground-sc-acb4d428-2 HeroCard__HeroForeground-sc-b54ab541-3 fwcvtM bijWbg">
+                                                            <div class="Tiles__TileHeader-sc-acb4d428-3 bWliUV"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT HeroCard__HeroSubHeading-sc-b54ab541-2 bqWcSB"></div><h4 style="margin:0 0 8px 0" class="HeroCard__HeroHeading-sc-b54ab541-1 dTqftx"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 eCzGjR gtvmjT">Charm residences</div></h4></div>
+                                                            <div class="FlexContainers__Row-sc-d0e49f72-1 Tiles__TileContent-sc-acb4d428-4 hYsskf bGAnbK"></div><div class="Tiles__TileFooter-sc-acb4d428-5 HeroCard__HeroFooter-sc-b54ab541-4 AavND huLONg">
+                                                                <div color="default" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 laeVWx gtvmjT">
+                                                                    <div class="MediaBlock__MediaContainer-sc-ad2f5bfc-0 caedLv">
+                                                                        <div class="MediaBlock__MediaContent-sc-ad2f5bfc-1 ikaifl"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT">View Homes</div></div>
+                                                                        <div class="getUiSvgContainer__SvgContainer-sc-3c9612d7-0 emjeJJ"><svg role="img" aria-label="" aria-hidden="true" class="svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M17.65 16.513l-7.147-7.055 1.868-1.893 9.068 8.951-9.069 8.927-1.866-1.896z" fill="#869099"></path></svg></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div><div>
+                                    <div data-testid="homepage-ndp-card" class="Box__BoxElement-sc-9529e829-0 bjkomQ">
+                                        <div height="192" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 sc-4a0c4302-0 hIJqfi eNINUo">
+                                            <div color="rgb(20,66,37)" class="Tiles__TileBackground-sc-acb4d428-0 sc-4a0c4302-4 bfDsir gkxuhh"></div><div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                <div class="FlexContainers__Rows-sc-d0e49f72-0 cqtAIt Tiles__TileForeground-sc-acb4d428-2 sc-4a0c4302-3 fgAtbl hsFEiv">
+                                                    <div class="Tiles__TileHeader-sc-acb4d428-3 bWliUV"><h4 class="sc-4a0c4302-1 kPspZe">Brianne</h4><div class="sc-4a0c4302-2 fSKevZ">Chicago<!-- --> Resident</div></div><div class="FlexContainers__Row-sc-d0e49f72-1 Tiles__TileContent-sc-acb4d428-4 hYsskf bGAnbK">
+                                                        <div style="font-weight:lighter" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 fBIFBh gtvmjT">A good mix of young adults/good night life as well as families and family friendly activities...</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="Grid__CellBox-sc-6b10767f-0 ContentSlider__StyledCell-sc-6522bfdc-0 cSbzqm fPzLDn">
+                            <div class="FlexContainers__Column-sc-d0e49f72-3 leepcY">
+                                <div>
+                                    <a href="/CA/Carlsbad/" data-testid="homepage-ndp-card" class="BoxLink-sc-f46643c5-0 hqcAtn">
+                                        <div height="192" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 sc-4a0c4302-0 hIJqfi eNINUo">
+                                            <div tabindex="-1" height="100%" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 HeroCard__HeroTile-sc-b54ab541-0 cpTdvw gUFaqi">
+                                                <div class="Tiles__TileBackground-sc-acb4d428-0 bfDsir"><img loading="lazy" decoding="async" src="images/unit/chateau-elysee-banner.jpg" alt="" class="Image__ImageContainer-sc-776ebfb1-0 gGipxX" /></div>
+                                                <div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                    <div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                        <div class="FlexContainers__Rows-sc-d0e49f72-0 cqtAIt Tiles__TileForeground-sc-acb4d428-2 HeroCard__HeroForeground-sc-b54ab541-3 fwcvtM bijWbg">
+                                                            <div class="Tiles__TileHeader-sc-acb4d428-3 bWliUV">
+                                                                <div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT HeroCard__HeroSubHeading-sc-b54ab541-2 bqWcSB"></div><h4 style="margin:0 0 8px 0" class="HeroCard__HeroHeading-sc-b54ab541-1 dTqftx">
+                                                                    <div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 eCzGjR gtvmjT">Chateau Elysee</div>
+                                                                </h4>
+                                                            </div><div class="FlexContainers__Row-sc-d0e49f72-1 Tiles__TileContent-sc-acb4d428-4 hYsskf bGAnbK"></div><div class="Tiles__TileFooter-sc-acb4d428-5 HeroCard__HeroFooter-sc-b54ab541-4 AavND huLONg">
+                                                                <div color="default" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 laeVWx gtvmjT">
+                                                                    <div class="MediaBlock__MediaContainer-sc-ad2f5bfc-0 caedLv">
+                                                                        <div class="MediaBlock__MediaContent-sc-ad2f5bfc-1 ikaifl"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT">View Homes</div></div>
+                                                                        <div class="getUiSvgContainer__SvgContainer-sc-3c9612d7-0 emjeJJ"><svg role="img" aria-label="" aria-hidden="true" class="svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M17.65 16.513l-7.147-7.055 1.868-1.893 9.068 8.951-9.069 8.927-1.866-1.896z" fill="#869099"></path></svg></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div><div>
+                                    <a href="/MA/Newton/" data-testid="homepage-ndp-card" class="BoxLink-sc-f46643c5-0 hqcAtn">
+                                        <div height="192" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 sc-4a0c4302-0 hIJqfi eNINUo">
+                                            <div tabindex="-1" height="100%" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 HeroCard__HeroTile-sc-b54ab541-0 cpTdvw gUFaqi">
+                                                <div class="Tiles__TileBackground-sc-acb4d428-0 bfDsir"><img loading="lazy" decoding="async" src="images/unit/cheerful-homes-banner.jpg" alt="" class="Image__ImageContainer-sc-776ebfb1-0 gGipxX" /></div>
+                                                <div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                    <div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                        <div class="FlexContainers__Rows-sc-d0e49f72-0 cqtAIt Tiles__TileForeground-sc-acb4d428-2 HeroCard__HeroForeground-sc-b54ab541-3 fwcvtM bijWbg">
+                                                            <div class="Tiles__TileHeader-sc-acb4d428-3 bWliUV">
+                                                                <div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT HeroCard__HeroSubHeading-sc-b54ab541-2 bqWcSB"></div>
+                                                                <h4 style="margin:0 0 8px 0" class="HeroCard__HeroHeading-sc-b54ab541-1 dTqftx"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 eCzGjR gtvmjT">Cheerful Homes</div></h4>
+                                                            </div><div class="FlexContainers__Row-sc-d0e49f72-1 Tiles__TileContent-sc-acb4d428-4 hYsskf bGAnbK"></div><div class="Tiles__TileFooter-sc-acb4d428-5 HeroCard__HeroFooter-sc-b54ab541-4 AavND huLONg">
+                                                                <div color="default" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 laeVWx gtvmjT">
+                                                                    <div class="MediaBlock__MediaContainer-sc-ad2f5bfc-0 caedLv">
+                                                                        <div class="MediaBlock__MediaContent-sc-ad2f5bfc-1 ikaifl"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT">View Homes</div></div><div class="getUiSvgContainer__SvgContainer-sc-3c9612d7-0 emjeJJ">
+                                                                            <svg role="img" aria-label="" aria-hidden="true" class="svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                                                                <path d="M17.65 16.513l-7.147-7.055 1.868-1.893 9.068 8.951-9.069 8.927-1.866-1.896z" fill="#869099"></path>
+                                                                            </svg>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="Grid__CellBox-sc-6b10767f-0 ContentSlider__StyledCell-sc-6522bfdc-0 cSbzqm fPzLDn">
+                            <div class="FlexContainers__Column-sc-d0e49f72-3 leepcY">
+                                <div>
+                                    <a href="/PA/Philadelphia/" data-testid="homepage-ndp-card" class="BoxLink-sc-f46643c5-0 hqcAtn">
+                                        <div height="400" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 sc-4a0c4302-0 gPCNSc eNINUo">
+                                            <div tabindex="-1" height="100%" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 HeroCard__HeroTile-sc-b54ab541-0 cpTdvw gUFaqi">
+                                                <div class="Tiles__TileBackground-sc-acb4d428-0 bfDsir"><img loading="lazy" decoding="async" src="images/unit/coast-residences-banner.jpg" alt="" class="Image__ImageContainer-sc-776ebfb1-0 gGipxX" /></div>
+                                                <div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                    <div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                        <div class="FlexContainers__Rows-sc-d0e49f72-0 cqtAIt Tiles__TileForeground-sc-acb4d428-2 HeroCard__HeroForeground-sc-b54ab541-3 fwcvtM bijWbg">
+                                                            <div class="Tiles__TileHeader-sc-acb4d428-3 bWliUV"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT HeroCard__HeroSubHeading-sc-b54ab541-2 bqWcSB"></div><h4 style="margin:0 0 8px 0" class="HeroCard__HeroHeading-sc-b54ab541-1 dTqftx"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 eCzGjR gtvmjT">Coast Residences</div></h4></div>
+                                                            <div class="FlexContainers__Row-sc-d0e49f72-1 Tiles__TileContent-sc-acb4d428-4 hYsskf bGAnbK"></div><div class="Tiles__TileFooter-sc-acb4d428-5 HeroCard__HeroFooter-sc-b54ab541-4 AavND huLONg">
+                                                                <div color="default" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 laeVWx gtvmjT">
+                                                                    <div class="MediaBlock__MediaContainer-sc-ad2f5bfc-0 caedLv">
+                                                                        <div class="MediaBlock__MediaContent-sc-ad2f5bfc-1 ikaifl"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT">View Homes</div></div><div class="getUiSvgContainer__SvgContainer-sc-3c9612d7-0 emjeJJ"><svg role="img" aria-label="" aria-hidden="true" class="svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M17.65 16.513l-7.147-7.055 1.868-1.893 9.068 8.951-9.069 8.927-1.866-1.896z" fill="#869099"></path></svg></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="Grid__CellBox-sc-6b10767f-0 ContentSlider__StyledCell-sc-6522bfdc-0 cSbzqm fPzLDn">
+                            <div class="FlexContainers__Column-sc-d0e49f72-3 leepcY">
+                                <div>
+                                    <a href="/MA/Quincy/" data-testid="homepage-ndp-card" class="BoxLink-sc-f46643c5-0 hqcAtn">
+                                        <div height="192" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 sc-4a0c4302-0 hIJqfi eNINUo">
+                                            <div tabindex="-1" height="100%" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 HeroCard__HeroTile-sc-b54ab541-0 cpTdvw gUFaqi">
+                                                <div class="Tiles__TileBackground-sc-acb4d428-0 bfDsir">
+                                                    <img loading="lazy" decoding="async" src="images/unit/cool-suites-banner.jpg" alt="" class="Image__ImageContainer-sc-776ebfb1-0 gGipxX" />
+                                                </div><div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                    <div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                        <div class="FlexContainers__Rows-sc-d0e49f72-0 cqtAIt Tiles__TileForeground-sc-acb4d428-2 HeroCard__HeroForeground-sc-b54ab541-3 fwcvtM bijWbg">
+                                                            <div class="Tiles__TileHeader-sc-acb4d428-3 bWliUV"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT HeroCard__HeroSubHeading-sc-b54ab541-2 bqWcSB"></div><h4 style="margin:0 0 8px 0" class="HeroCard__HeroHeading-sc-b54ab541-1 dTqftx"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 eCzGjR gtvmjT">Cool Suites</div></h4></div><div class="FlexContainers__Row-sc-d0e49f72-1 Tiles__TileContent-sc-acb4d428-4 hYsskf bGAnbK"></div><div class="Tiles__TileFooter-sc-acb4d428-5 HeroCard__HeroFooter-sc-b54ab541-4 AavND huLONg">
+                                                                <div color="default" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 laeVWx gtvmjT">
+                                                                    <div class="MediaBlock__MediaContainer-sc-ad2f5bfc-0 caedLv">
+                                                                        <div class="MediaBlock__MediaContent-sc-ad2f5bfc-1 ikaifl"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT">View Homes</div></div><div class="getUiSvgContainer__SvgContainer-sc-3c9612d7-0 emjeJJ">
+                                                                            <svg role="img" aria-label="" aria-hidden="true" class="svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                                                                <path d="M17.65 16.513l-7.147-7.055 1.868-1.893 9.068 8.951-9.069 8.927-1.866-1.896z" fill="#869099"></path>
+                                                                            </svg>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div><div>
+                                    <a href="/CA/Anaheim/" data-testid="homepage-ndp-card" class="BoxLink-sc-f46643c5-0 hqcAtn">
+                                        <div height="192" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 sc-4a0c4302-0 hIJqfi eNINUo">
+                                            <div tabindex="-1" height="100%" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 HeroCard__HeroTile-sc-b54ab541-0 cpTdvw gUFaqi">
+                                                <div class="Tiles__TileBackground-sc-acb4d428-0 bfDsir"><img loading="lazy" decoding="async" src="images/unit/shore-residences-banner.jpg" alt="" class="Image__ImageContainer-sc-776ebfb1-0 gGipxX" /></div><div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                    <div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                        <div class="FlexContainers__Rows-sc-d0e49f72-0 cqtAIt Tiles__TileForeground-sc-acb4d428-2 HeroCard__HeroForeground-sc-b54ab541-3 fwcvtM bijWbg">
+                                                            <div class="Tiles__TileHeader-sc-acb4d428-3 bWliUV"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT HeroCard__HeroSubHeading-sc-b54ab541-2 bqWcSB"></div><h4 style="margin:0 0 8px 0" class="HeroCard__HeroHeading-sc-b54ab541-1 dTqftx"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 eCzGjR gtvmjT">Shore Residences</div></h4></div><div class="FlexContainers__Row-sc-d0e49f72-1 Tiles__TileContent-sc-acb4d428-4 hYsskf bGAnbK"></div><div class="Tiles__TileFooter-sc-acb4d428-5 HeroCard__HeroFooter-sc-b54ab541-4 AavND huLONg">
+                                                                <div color="default" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 laeVWx gtvmjT">
+                                                                    <div class="MediaBlock__MediaContainer-sc-ad2f5bfc-0 caedLv">
+                                                                        <div class="MediaBlock__MediaContent-sc-ad2f5bfc-1 ikaifl"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT">View Homes</div></div><div class="getUiSvgContainer__SvgContainer-sc-3c9612d7-0 emjeJJ">
+                                                                            <svg role="img" aria-label="" aria-hidden="true" class="svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                                                                <path d="M17.65 16.513l-7.147-7.055 1.868-1.893 9.068 8.951-9.069 8.927-1.866-1.896z" fill="#869099"></path>
+                                                                            </svg>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="Grid__CellBox-sc-6b10767f-0 ContentSlider__StyledCell-sc-6522bfdc-0 cSbzqm fPzLDn">
+                            <div class="FlexContainers__Column-sc-d0e49f72-3 leepcY">
+                                <div>
+                                    <div data-testid="homepage-ndp-card" class="Box__BoxElement-sc-9529e829-0 bjkomQ">
+                                        <div height="192" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 sc-4a0c4302-0 hIJqfi eNINUo">
+                                            <div color="rgb(5,34,134)" class="Tiles__TileBackground-sc-acb4d428-0 sc-4a0c4302-4 bfDsir iHBKLT"></div><div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                <div class="FlexContainers__Rows-sc-d0e49f72-0 cqtAIt Tiles__TileForeground-sc-acb4d428-2 sc-4a0c4302-3 fgAtbl hsFEiv">
+                                                    <div class="Tiles__TileHeader-sc-acb4d428-3 bWliUV"><h4 class="sc-4a0c4302-1 kPspZe">Rentify User</h4><div class="sc-4a0c4302-2 fSKevZ">Chandler<!-- --> Resident</div></div><div class="FlexContainers__Row-sc-d0e49f72-1 Tiles__TileContent-sc-acb4d428-4 hYsskf bGAnbK">
+                                                        <div style="font-weight:lighter" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 fBIFBh gtvmjT">We live living in the Oakwood community of Sun Lakes. There are so many activities...</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><div>
+                                    <a href="/CO/Denver/" data-testid="homepage-ndp-card" class="BoxLink-sc-f46643c5-0 hqcAtn">
+                                        <div height="192" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 sc-4a0c4302-0 hIJqfi eNINUo">
+                                            <div tabindex="-1" height="100%" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 HeroCard__HeroTile-sc-b54ab541-0 cpTdvw gUFaqi">
+                                                <div class="Tiles__TileBackground-sc-acb4d428-0 bfDsir"><img loading="lazy" decoding="async" src="images/unit/hill-residences-banner.jpg" alt="" class="Image__ImageContainer-sc-776ebfb1-0 gGipxX" /></div><div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                    <div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                        <div class="FlexContainers__Rows-sc-d0e49f72-0 cqtAIt Tiles__TileForeground-sc-acb4d428-2 HeroCard__HeroForeground-sc-b54ab541-3 fwcvtM bijWbg">
+                                                            <div class="Tiles__TileHeader-sc-acb4d428-3 bWliUV">
+                                                                <div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT HeroCard__HeroSubHeading-sc-b54ab541-2 bqWcSB"></div><h4 style="margin:0 0 8px 0" class="HeroCard__HeroHeading-sc-b54ab541-1 dTqftx">
+                                                                    <div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 eCzGjR gtvmjT">Hill Residences</div>
+                                                                </h4>
+                                                            </div><div class="FlexContainers__Row-sc-d0e49f72-1 Tiles__TileContent-sc-acb4d428-4 hYsskf bGAnbK"></div><div class="Tiles__TileFooter-sc-acb4d428-5 HeroCard__HeroFooter-sc-b54ab541-4 AavND huLONg">
+                                                                <div color="default" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 laeVWx gtvmjT">
+                                                                    <div class="MediaBlock__MediaContainer-sc-ad2f5bfc-0 caedLv">
+                                                                        <div class="MediaBlock__MediaContent-sc-ad2f5bfc-1 ikaifl"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT">View Homes</div></div><div class="getUiSvgContainer__SvgContainer-sc-3c9612d7-0 emjeJJ">
+                                                                            <svg role="img" aria-label="" aria-hidden="true" class="svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M17.65 16.513l-7.147-7.055 1.868-1.893 9.068 8.951-9.069 8.927-1.866-1.896z" fill="#869099"></path></svg>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="Grid__CellBox-sc-6b10767f-0 ContentSlider__StyledCell-sc-6522bfdc-0 cSbzqm fPzLDn">
+                            <div class="FlexContainers__Column-sc-d0e49f72-3 leepcY">
+                                <div>
+                                    <a href="/CA/Jurupa_Valley/" data-testid="homepage-ndp-card" class="BoxLink-sc-f46643c5-0 hqcAtn">
+                                        <div height="400" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 sc-4a0c4302-0 gPCNSc eNINUo">
+                                            <div tabindex="-1" height="100%" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 HeroCard__HeroTile-sc-b54ab541-0 cpTdvw gUFaqi">
+                                                <div class="Tiles__TileBackground-sc-acb4d428-0 bfDsir"><img loading="lazy" decoding="async" src="images/unit/green-residences-banner.jpg" alt="" class="Image__ImageContainer-sc-776ebfb1-0 gGipxX" /></div><div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                    <div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                        <div class="FlexContainers__Rows-sc-d0e49f72-0 cqtAIt Tiles__TileForeground-sc-acb4d428-2 HeroCard__HeroForeground-sc-b54ab541-3 fwcvtM bijWbg">
+                                                            <div class="Tiles__TileHeader-sc-acb4d428-3 bWliUV"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT HeroCard__HeroSubHeading-sc-b54ab541-2 bqWcSB"></div><h4 style="margin:0 0 8px 0" class="HeroCard__HeroHeading-sc-b54ab541-1 dTqftx"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 eCzGjR gtvmjT">Green Residences</div></h4></div>
+                                                            <div class="FlexContainers__Row-sc-d0e49f72-1 Tiles__TileContent-sc-acb4d428-4 hYsskf bGAnbK"></div>
+                                                            <div class="Tiles__TileFooter-sc-acb4d428-5 HeroCard__HeroFooter-sc-b54ab541-4 AavND huLONg">
+                                                                <div color="default" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 laeVWx gtvmjT">
+                                                                    <div class="MediaBlock__MediaContainer-sc-ad2f5bfc-0 caedLv">
+                                                                        <div class="MediaBlock__MediaContent-sc-ad2f5bfc-1 ikaifl"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT">View Homes</div></div><div class="getUiSvgContainer__SvgContainer-sc-3c9612d7-0 emjeJJ">
+                                                                            <svg role="img" aria-label="" aria-hidden="true" class="svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M17.65 16.513l-7.147-7.055 1.868-1.893 9.068 8.951-9.069 8.927-1.866-1.896z" fill="#869099"></path></svg>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="Grid__CellBox-sc-6b10767f-0 ContentSlider__StyledCell-sc-6522bfdc-0 cSbzqm fPzLDn">
+                            <div class="FlexContainers__Column-sc-d0e49f72-3 leepcY">
+                                <div>
+                                    <a href="/MA/Lowell/" data-testid="homepage-ndp-card" class="BoxLink-sc-f46643c5-0 hqcAtn">
+                                        <div height="192" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 sc-4a0c4302-0 hIJqfi eNINUo">
+                                            <div tabindex="-1" height="100%" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 HeroCard__HeroTile-sc-b54ab541-0 cpTdvw gUFaqi">
+                                                <div class="Tiles__TileBackground-sc-acb4d428-0 bfDsir"><img loading="lazy" decoding="async" src="images/unit/grass-residences-banner.jpg" alt="" class="Image__ImageContainer-sc-776ebfb1-0 gGipxX" /></div><div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                    <div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                        <div class="FlexContainers__Rows-sc-d0e49f72-0 cqtAIt Tiles__TileForeground-sc-acb4d428-2 HeroCard__HeroForeground-sc-b54ab541-3 fwcvtM bijWbg">
+                                                            <div class="Tiles__TileHeader-sc-acb4d428-3 bWliUV">
+                                                                <div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT HeroCard__HeroSubHeading-sc-b54ab541-2 bqWcSB"></div><h4 style="margin:0 0 8px 0" class="HeroCard__HeroHeading-sc-b54ab541-1 dTqftx">
+                                                                    <div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 eCzGjR gtvmjT">Grass residences</div>
+                                                                </h4>
+                                                            </div><div class="FlexContainers__Row-sc-d0e49f72-1 Tiles__TileContent-sc-acb4d428-4 hYsskf bGAnbK"></div><div class="Tiles__TileFooter-sc-acb4d428-5 HeroCard__HeroFooter-sc-b54ab541-4 AavND huLONg">
+                                                                <div color="default" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 laeVWx gtvmjT">
+                                                                    <div class="MediaBlock__MediaContainer-sc-ad2f5bfc-0 caedLv">
+                                                                        <div class="MediaBlock__MediaContent-sc-ad2f5bfc-1 ikaifl"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT">View Homes</div></div>
+                                                                        <div class="getUiSvgContainer__SvgContainer-sc-3c9612d7-0 emjeJJ"><svg role="img" aria-label="" aria-hidden="true" class="svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M17.65 16.513l-7.147-7.055 1.868-1.893 9.068 8.951-9.069 8.927-1.866-1.896z" fill="#869099"></path></svg></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div><div>
+                                    <a href="/CO/Aurora/" data-testid="homepage-ndp-card" class="BoxLink-sc-f46643c5-0 hqcAtn">
+                                        <div height="192" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 sc-4a0c4302-0 hIJqfi eNINUo">
+                                            <div tabindex="-1" height="100%" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 HeroCard__HeroTile-sc-b54ab541-0 cpTdvw gUFaqi">
+                                                <div class="Tiles__TileBackground-sc-acb4d428-0 bfDsir"><img loading="lazy" decoding="async" src="images/unit/glade-residences-banner.jpg" alt="" class="Image__ImageContainer-sc-776ebfb1-0 gGipxX" /></div>
+                                                <div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                    <div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                        <div class="FlexContainers__Rows-sc-d0e49f72-0 cqtAIt Tiles__TileForeground-sc-acb4d428-2 HeroCard__HeroForeground-sc-b54ab541-3 fwcvtM bijWbg">
+                                                            <div class="Tiles__TileHeader-sc-acb4d428-3 bWliUV">
+                                                                <div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT HeroCard__HeroSubHeading-sc-b54ab541-2 bqWcSB"></div><h4 style="margin:0 0 8px 0" class="HeroCard__HeroHeading-sc-b54ab541-1 dTqftx">
+                                                                    <div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 eCzGjR gtvmjT">Glade residences</div>
+                                                                </h4>
+                                                            </div><div class="FlexContainers__Row-sc-d0e49f72-1 Tiles__TileContent-sc-acb4d428-4 hYsskf bGAnbK"></div><div class="Tiles__TileFooter-sc-acb4d428-5 HeroCard__HeroFooter-sc-b54ab541-4 AavND huLONg">
+                                                                <div color="default" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 laeVWx gtvmjT">
+                                                                    <div class="MediaBlock__MediaContainer-sc-ad2f5bfc-0 caedLv">
+                                                                        <div class="MediaBlock__MediaContent-sc-ad2f5bfc-1 ikaifl"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT">View Homes</div></div><div class="getUiSvgContainer__SvgContainer-sc-3c9612d7-0 emjeJJ">
+                                                                            <svg role="img" aria-label="" aria-hidden="true" class="svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M17.65 16.513l-7.147-7.055 1.868-1.893 9.068 8.951-9.069 8.927-1.866-1.896z" fill="#869099"></path></svg>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="Grid__CellBox-sc-6b10767f-0 ContentSlider__StyledCell-sc-6522bfdc-0 cSbzqm fPzLDn">
+                            <div class="FlexContainers__Column-sc-d0e49f72-3 leepcY">
+                                <div>
+                                    <a href="/CA/San_Jose/" data-testid="homepage-ndp-card" class="BoxLink-sc-f46643c5-0 hqcAtn">
+                                        <div height="192" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 sc-4a0c4302-0 hIJqfi eNINUo">
+                                            <div tabindex="-1" height="100%" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 HeroCard__HeroTile-sc-b54ab541-0 cpTdvw gUFaqi">
+                                                <div class="Tiles__TileBackground-sc-acb4d428-0 bfDsir"><img loading="lazy" decoding="async" src="images/unit/fame-residences-banner.jpg" alt="" class="Image__ImageContainer-sc-776ebfb1-0 gGipxX" /></div>
+                                                <div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                    <div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                        <div class="FlexContainers__Rows-sc-d0e49f72-0 cqtAIt Tiles__TileForeground-sc-acb4d428-2 HeroCard__HeroForeground-sc-b54ab541-3 fwcvtM bijWbg">
+                                                            <div class="Tiles__TileHeader-sc-acb4d428-3 bWliUV"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT HeroCard__HeroSubHeading-sc-b54ab541-2 bqWcSB"></div><h4 style="margin:0 0 8px 0" class="HeroCard__HeroHeading-sc-b54ab541-1 dTqftx"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 eCzGjR gtvmjT">Fame residences</div></h4></div>
+                                                            <div class="FlexContainers__Row-sc-d0e49f72-1 Tiles__TileContent-sc-acb4d428-4 hYsskf bGAnbK"></div>
+                                                            <div class="Tiles__TileFooter-sc-acb4d428-5 HeroCard__HeroFooter-sc-b54ab541-4 AavND huLONg">
+                                                                <div color="default" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 laeVWx gtvmjT">
+                                                                    <div class="MediaBlock__MediaContainer-sc-ad2f5bfc-0 caedLv">
+                                                                        <div class="MediaBlock__MediaContent-sc-ad2f5bfc-1 ikaifl"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT">View Homes</div></div>
+                                                                        <div class="getUiSvgContainer__SvgContainer-sc-3c9612d7-0 emjeJJ"><svg role="img" aria-label="" aria-hidden="true" class="svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M17.65 16.513l-7.147-7.055 1.868-1.893 9.068 8.951-9.069 8.927-1.866-1.896z" fill="#869099"></path></svg></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div><div>
+                                    <div data-testid="homepage-ndp-card" class="Box__BoxElement-sc-9529e829-0 bjkomQ">
+                                        <div height="192" width="100%" class="Tiles__TileContainer-sc-acb4d428-1 sc-4a0c4302-0 hIJqfi eNINUo">
+                                            <div color="rgb(0,86,93)" class="Tiles__TileBackground-sc-acb4d428-0 sc-4a0c4302-4 bfDsir bVIYRL"></div><div color="inverse" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 gSlgiu gtvmjT">
+                                                <div class="FlexContainers__Rows-sc-d0e49f72-0 cqtAIt Tiles__TileForeground-sc-acb4d428-2 sc-4a0c4302-3 fgAtbl hsFEiv">
+                                                    <div class="Tiles__TileHeader-sc-acb4d428-3 bWliUV"><h4 class="sc-4a0c4302-1 kPspZe">Rentify User</h4><div class="sc-4a0c4302-2 fSKevZ">San Diego<!-- --> Resident</div></div>
+                                                    <div class="FlexContainers__Row-sc-d0e49f72-1 Tiles__TileContent-sc-acb4d428-4 hYsskf bGAnbK"><div style="font-weight:lighter" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 fBIFBh gtvmjT">Farmers markets, street fairs, and brewery tours are great to experience in this area.</div></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div role="button" class="Box__BoxElement-sc-9529e829-0 bjkomQ BoxButton-sc-155631a2-0 jTslXf ContentSlider__SkipLink-sc-6522bfdc-8 dhgwpX" tabindex="0"><div color="highlight" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 diAvex gtvmjT Anchor__StyledText-sc-fead93c0-0 fefLHJ">Skip to first item</div></div>
+            </div>
+        </div>
+    </div>
+    <div class="Padding-sc-bf66b591-0 sc-7462c3b7-2 hUxWol dOuJPr">
+        <div style="margin:96px auto" class="FlexContainers__Columns-sc-d0e49f72-2 crhCCB">
+            <div class="TextPlaceholder__TextPlaceholderContainer-sc-504921cd-0 VmeEH">
+                <div class="TextPlaceholder-sc-504921cd-2 cZBPly">
+                    <div width="300px" class="TextPlaceholder__TextPlaceholderMark-sc-504921cd-1 jzSjrU Shimmer-sc-20658ef-0 eOGHOC"></div>
+                </div>
+            </div>
+        </div>
+        <div data-testid="newest-homes-container" class="sc-c6a48c32-1 eQhuHs">
+            <div class="ContentSlider__ContentSliderContainer-sc-6522bfdc-1 kbGLmc">
+                <div class="ContentSlider__PreviousControl-sc-6522bfdc-4 bgNHKs"><button type="button" class="FloatingActionButton-sc-5114a008-0 gcgmnY sliderControl" aria-label="Previous" tabindex="-1" aria-hidden="true" theme="light"><div class="getUiSvgContainer__SvgContainer-sc-3c9612d7-0 emjeJJ"><svg role="img" aria-label="" aria-hidden="true" class="svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M14.292 16.494l7.147 7.056-1.869 1.893-9.067-8.951 9.069-8.927 1.866 1.896z" fill="#869099"></path></svg></div></button></div>
+                <div class="ContentSlider__NextControl-sc-6522bfdc-5 yUNyv"><button type="button" class="FloatingActionButton-sc-5114a008-0 gcgmnY sliderControl" aria-label="Next" tabindex="-1" aria-hidden="true" theme="light"><div class="getUiSvgContainer__SvgContainer-sc-3c9612d7-0 emjeJJ"><svg role="img" aria-label="" aria-hidden="true" class="svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M17.65 16.513l-7.147-7.055 1.868-1.893 9.068 8.951-9.069 8.927-1.866-1.896z" fill="#869099"></path></svg></div></button></div>
+                <div role="button" class="Box__BoxElement-sc-9529e829-0 bjkomQ BoxButton-sc-155631a2-0 jTslXf ContentSlider__SkipLink-sc-6522bfdc-8 cqVjNe" tabindex="0"><div color="highlight" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 diAvex gtvmjT Anchor__StyledText-sc-fead93c0-0 fefLHJ">Skip to last item</div></div><div class="ContentSlider__OverflowContainer-sc-6522bfdc-2 gNXDYa">
+                    <ul class="Grid__GridContainer-sc-6b10767f-1 fMtReY ContentSlider__ScrollContainer-sc-6522bfdc-3 fMOkgu">
+                        <li class="Grid__CellBox-sc-6b10767f-0 ContentSlider__StyledCell-sc-6522bfdc-0 cSbzqm fPzLDn">
+                            <div data-testid="loading-property-card-1" class="Box__BoxElement-sc-9529e829-0 bjkomQ SkeletonPropertyCard__SkeletonPropertyCardContainer-sc-c74a3c94-1 kWLSMB">
+                                <div class="Box__BoxElement-sc-9529e829-0 bjkomQ SkeletonPropertyCard__SkeletonCardImage-sc-c74a3c94-0 kTesCr">
+                                    <div height="100%" class="Tiles__TileContainer-sc-acb4d428-1 cpTdvw Shimmer-sc-20658ef-0 eOGHOC" width="100%">
+                                        <div class="FlexContainers__Row-sc-d0e49f72-1 Tiles__TileContent-sc-acb4d428-4 hYsskf bGAnbK">
+                                            <img loading="lazy" decoding="async" src="https://www.trulia.com/images/icons/txl3/illustrations/EmptyPhoto.svg" alt="" class="Image__ImageContainer-sc-776ebfb1-0 cvQlys" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="Box__BoxElement-sc-9529e829-0 bjkomQ">
+                                    <div class="Padding-sc-bf66b591-0 kIlYiJ">
+                                        <div class="TextPlaceholder__TextPlaceholderContainer-sc-504921cd-0 VmeEH">
+                                            <div class="TextPlaceholder-sc-504921cd-2 jWUIdd"><div width="90px" class="TextPlaceholder__TextPlaceholderMark-sc-504921cd-1 dUmDTW Shimmer-sc-20658ef-0 eOGHOC"></div></div><ul class="List__ListContainer-sc-29d56926-0 giARhI">
+                                                <li><div class="TextPlaceholder-sc-504921cd-2 jWUIdd"><div width="50px" class="TextPlaceholder__TextPlaceholderMark-sc-504921cd-1 dUmDUa Shimmer-sc-20658ef-0 eOGHOC"></div></div></li>
+                                                <li>
+                                                    <div class="TextPlaceholder-sc-504921cd-2 jWUIdd">
+                                                        <div width="50px" class="TextPlaceholder__TextPlaceholderMark-sc-504921cd-1 dUmDUa Shimmer-sc-20658ef-0 eOGHOC"></div>
+                                                    </div>
+                                                </li>
+                                                <li><div class="TextPlaceholder-sc-504921cd-2 jWUIdd"><div width="93px" class="TextPlaceholder__TextPlaceholderMark-sc-504921cd-1 dUmDTt Shimmer-sc-20658ef-0 eOGHOC"></div></div></li>
+                                            </ul><div>
+                                                <div class="TextPlaceholder-sc-504921cd-2 jWUIdd"><div width="130px" class="TextPlaceholder__TextPlaceholderMark-sc-504921cd-1 eeuxZt Shimmer-sc-20658ef-0 eOGHOC"></div></div>
+                                            </div>
+                                            <div class="TextPlaceholder-sc-504921cd-2 jWUIdd"><div width="160px" class="TextPlaceholder__TextPlaceholderMark-sc-504921cd-1 eeuxYI Shimmer-sc-20658ef-0 eOGHOC"></div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="Grid__CellBox-sc-6b10767f-0 ContentSlider__StyledCell-sc-6522bfdc-0 cSbzqm fPzLDn">
+                            <div data-testid="loading-property-card-2" class="Box__BoxElement-sc-9529e829-0 bjkomQ SkeletonPropertyCard__SkeletonPropertyCardContainer-sc-c74a3c94-1 kWLSMB">
+                                <div class="Box__BoxElement-sc-9529e829-0 bjkomQ SkeletonPropertyCard__SkeletonCardImage-sc-c74a3c94-0 kTesCr"><div height="100%" class="Tiles__TileContainer-sc-acb4d428-1 cpTdvw Shimmer-sc-20658ef-0 eOGHOC" width="100%"><div class="FlexContainers__Row-sc-d0e49f72-1 Tiles__TileContent-sc-acb4d428-4 hYsskf bGAnbK"><img loading="lazy" decoding="async" src="https://www.trulia.com/images/icons/txl3/illustrations/EmptyPhoto.svg" alt="" class="Image__ImageContainer-sc-776ebfb1-0 cvQlys" /></div></div></div>
+                                <div class="Box__BoxElement-sc-9529e829-0 bjkomQ">
+                                    <div class="Padding-sc-bf66b591-0 kIlYiJ">
+                                        <div class="TextPlaceholder__TextPlaceholderContainer-sc-504921cd-0 VmeEH">
+                                            <div class="TextPlaceholder-sc-504921cd-2 jWUIdd"><div width="90px" class="TextPlaceholder__TextPlaceholderMark-sc-504921cd-1 dUmDTW Shimmer-sc-20658ef-0 eOGHOC"></div></div><ul class="List__ListContainer-sc-29d56926-0 giARhI">
+                                                <li><div class="TextPlaceholder-sc-504921cd-2 jWUIdd"><div width="50px" class="TextPlaceholder__TextPlaceholderMark-sc-504921cd-1 dUmDUa Shimmer-sc-20658ef-0 eOGHOC"></div></div></li>
+                                                <li><div class="TextPlaceholder-sc-504921cd-2 jWUIdd"><div width="50px" class="TextPlaceholder__TextPlaceholderMark-sc-504921cd-1 dUmDUa Shimmer-sc-20658ef-0 eOGHOC"></div></div></li>
+                                                <li><div class="TextPlaceholder-sc-504921cd-2 jWUIdd"><div width="93px" class="TextPlaceholder__TextPlaceholderMark-sc-504921cd-1 dUmDTt Shimmer-sc-20658ef-0 eOGHOC"></div></div></li>
+                                            </ul><div><div class="TextPlaceholder-sc-504921cd-2 jWUIdd"><div width="130px" class="TextPlaceholder__TextPlaceholderMark-sc-504921cd-1 eeuxZt Shimmer-sc-20658ef-0 eOGHOC"></div></div></div><div class="TextPlaceholder-sc-504921cd-2 jWUIdd"><div width="160px" class="TextPlaceholder__TextPlaceholderMark-sc-504921cd-1 eeuxYI Shimmer-sc-20658ef-0 eOGHOC"></div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="Grid__CellBox-sc-6b10767f-0 ContentSlider__StyledCell-sc-6522bfdc-0 cSbzqm fPzLDn">
+                            <div data-testid="loading-property-card-3" class="Box__BoxElement-sc-9529e829-0 bjkomQ SkeletonPropertyCard__SkeletonPropertyCardContainer-sc-c74a3c94-1 kWLSMB">
+                                <div class="Box__BoxElement-sc-9529e829-0 bjkomQ SkeletonPropertyCard__SkeletonCardImage-sc-c74a3c94-0 kTesCr">
+                                    <div height="100%" class="Tiles__TileContainer-sc-acb4d428-1 cpTdvw Shimmer-sc-20658ef-0 eOGHOC" width="100%">
+                                        <div class="FlexContainers__Row-sc-d0e49f72-1 Tiles__TileContent-sc-acb4d428-4 hYsskf bGAnbK"><img loading="lazy" decoding="async" src="images/unit/EmptyPhoto.svg" alt="" class="Image__ImageContainer-sc-776ebfb1-0 cvQlys" /></div>
+                                    </div>
+                                </div>
+                                <div class="Box__BoxElement-sc-9529e829-0 bjkomQ">
+                                    <div class="Padding-sc-bf66b591-0 kIlYiJ">
+                                        <div class="TextPlaceholder__TextPlaceholderContainer-sc-504921cd-0 VmeEH">
+                                            <div class="TextPlaceholder-sc-504921cd-2 jWUIdd"><div width="90px" class="TextPlaceholder__TextPlaceholderMark-sc-504921cd-1 dUmDTW Shimmer-sc-20658ef-0 eOGHOC"></div></div><ul class="List__ListContainer-sc-29d56926-0 giARhI">
+                                                <li><div class="TextPlaceholder-sc-504921cd-2 jWUIdd"><div width="50px" class="TextPlaceholder__TextPlaceholderMark-sc-504921cd-1 dUmDUa Shimmer-sc-20658ef-0 eOGHOC"></div></div></li>
+                                                <li><div class="TextPlaceholder-sc-504921cd-2 jWUIdd"><div width="50px" class="TextPlaceholder__TextPlaceholderMark-sc-504921cd-1 dUmDUa Shimmer-sc-20658ef-0 eOGHOC"></div></div></li>
+                                                <li><div class="TextPlaceholder-sc-504921cd-2 jWUIdd"><div width="93px" class="TextPlaceholder__TextPlaceholderMark-sc-504921cd-1 dUmDTt Shimmer-sc-20658ef-0 eOGHOC"></div></div></li>
+                                            </ul>
+                                            <div>
+                                                <div class="TextPlaceholder-sc-504921cd-2 jWUIdd"><div width="130px" class="TextPlaceholder__TextPlaceholderMark-sc-504921cd-1 eeuxZt Shimmer-sc-20658ef-0 eOGHOC"></div></div>
+                                            </div><div class="TextPlaceholder-sc-504921cd-2 jWUIdd">
+                                                <div width="160px" class="TextPlaceholder__TextPlaceholderMark-sc-504921cd-1 eeuxYI Shimmer-sc-20658ef-0 eOGHOC"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="Grid__CellBox-sc-6b10767f-0 ContentSlider__StyledCell-sc-6522bfdc-0 cSbzqm fPzLDn">
+                            <div data-testid="loading-property-card-4" class="Box__BoxElement-sc-9529e829-0 bjkomQ SkeletonPropertyCard__SkeletonPropertyCardContainer-sc-c74a3c94-1 kWLSMB">
+                                <div class="Box__BoxElement-sc-9529e829-0 bjkomQ SkeletonPropertyCard__SkeletonCardImage-sc-c74a3c94-0 kTesCr">
+                                    <div height="100%" class="Tiles__TileContainer-sc-acb4d428-1 cpTdvw Shimmer-sc-20658ef-0 eOGHOC" width="100%">
+                                        <div class="FlexContainers__Row-sc-d0e49f72-1 Tiles__TileContent-sc-acb4d428-4 hYsskf bGAnbK">
+                                            <img loading="lazy" decoding="async" src="images/unit/field-residences-banner.jpg" alt="" class="Image__ImageContainer-sc-776ebfb1-0 cvQlys" />
+                                        </div>
+                                    </div>
+                                </div><div class="Box__BoxElement-sc-9529e829-0 bjkomQ">
+                                    <div class="Padding-sc-bf66b591-0 kIlYiJ">
+                                        <div class="TextPlaceholder__TextPlaceholderContainer-sc-504921cd-0 VmeEH">
+                                            <div class="TextPlaceholder-sc-504921cd-2 jWUIdd"><div width="90px" class="TextPlaceholder__TextPlaceholderMark-sc-504921cd-1 dUmDTW Shimmer-sc-20658ef-0 eOGHOC"></div></div>
+                                            <ul class="List__ListContainer-sc-29d56926-0 giARhI">
+                                                <li>
+                                                    <div class="TextPlaceholder-sc-504921cd-2 jWUIdd">
+                                                        <div width="50px" class="TextPlaceholder__TextPlaceholderMark-sc-504921cd-1 dUmDUa Shimmer-sc-20658ef-0 eOGHOC"></div>
+                                                    </div>
+                                                </li>
+                                                <li><div class="TextPlaceholder-sc-504921cd-2 jWUIdd"><div width="50px" class="TextPlaceholder__TextPlaceholderMark-sc-504921cd-1 dUmDUa Shimmer-sc-20658ef-0 eOGHOC"></div></div></li>
+                                                <li><div class="TextPlaceholder-sc-504921cd-2 jWUIdd"><div width="93px" class="TextPlaceholder__TextPlaceholderMark-sc-504921cd-1 dUmDTt Shimmer-sc-20658ef-0 eOGHOC"></div></div></li>
+                                            </ul><div><div class="TextPlaceholder-sc-504921cd-2 jWUIdd"><div width="130px" class="TextPlaceholder__TextPlaceholderMark-sc-504921cd-1 eeuxZt Shimmer-sc-20658ef-0 eOGHOC"></div></div></div>
+                                            <div class="TextPlaceholder-sc-504921cd-2 jWUIdd"><div width="160px" class="TextPlaceholder__TextPlaceholderMark-sc-504921cd-1 eeuxYI Shimmer-sc-20658ef-0 eOGHOC"></div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div><div role="button" class="Box__BoxElement-sc-9529e829-0 bjkomQ BoxButton-sc-155631a2-0 jTslXf ContentSlider__SkipLink-sc-6522bfdc-8 dhgwpX" tabindex="0"><div color="highlight" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 diAvex gtvmjT Anchor__StyledText-sc-fead93c0-0 fefLHJ">Skip to first item</div></div>
+            </div>
+        </div>
+    </div><div class="sc-918278a6-0 sc-63c31418-0 kvzQhZ kirpNa">
+        <div r="s" data-testid="trulia-help-container" class="Padding-sc-bf66b591-0 cfjEhq">
+            <div class="sc-fcb48802-0 keKIPy"><h2 style="margin:0 0 8px 0" align="center" lines="2"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 ingDZ gtvmjT">See how Rentify can help</div></h2></div><div class="Grid__GridContainer-sc-6b10767f-1 cHqTDw">
+                <div width="1,1,1,0.33,0.33" class="Grid__CellBox-sc-6b10767f-0 gIkeIB">
+                    <div role="button" tabindex="0" class="Box__BoxElement-sc-9529e829-0 bjkomQ BoxButton-sc-155631a2-0 bSUoRr">
+                        <div class="Padding-sc-bf66b591-0 jWFEta">
+                            <div style="max-width:254px;margin:auto" class="Box__BoxElement-sc-9529e829-0 bjkomQ">
+                                <div class="sc-90a8b765-0 bJRGfI"><img loading="lazy" decoding="async" src="https://www.trulia.com/images/icons/txl3/illustrations/BuyAHome.svg" alt="" class="Image__ImageContainer-sc-776ebfb1-0 cvQlys" /></div><h4 style="margin:0 0 8px 0" align="center"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 eCzGjR gtvmjT">Buy a home</div></h4>
+                                <div style="text-align:center" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT">With over 1 million+ homes for sale available on the website, Rentify can match you with a house you will want to call home.</div>
+                                <div class="Padding-sc-bf66b591-0 bBIJOS"><a href="/houses-for-sale-near-me/" style="margin:auto;display:block;width:175px" class="ButtonBase-sc-ca7e2680-0 PrimaryButton-sc-d1dba674-0 cNJlGF fZURYe">Find a home</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div><div width="1,1,1,0.33,0.33" class="Grid__CellBox-sc-6b10767f-0 gIkeIB">
+                    <div role="button" tabindex="0" class="Box__BoxElement-sc-9529e829-0 bjkomQ BoxButton-sc-155631a2-0 bSUoRr">
+                        <div class="Padding-sc-bf66b591-0 jWFEta">
+                            <div style="max-width:254px;margin:auto" class="Box__BoxElement-sc-9529e829-0 bjkomQ">
+                                <div class="sc-90a8b765-0 bJRGfI"><img loading="lazy" decoding="async" src="https://www.trulia.com/images/icons/txl3/illustrations/RentAHome.svg" alt="" class="Image__ImageContainer-sc-776ebfb1-0 cvQlys" /></div><h4 style="margin:0 0 8px 0" align="center"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 eCzGjR gtvmjT">Rent a home</div></h4>
+                                <div style="text-align:center" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT">With 35+ filters and custom keyword search, Rentify can help you easily find a home or apartment for rent that you&#x27;ll love.</div><div class="Padding-sc-bf66b591-0 bBIJOS"><a href="/apartments-for-rent-near-me/" style="margin:auto;display:block;width:175px" class="ButtonBase-sc-ca7e2680-0 PrimaryButton-sc-d1dba674-0 cNJlGF fZURYe">Find a rental</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div><div width="1,1,1,0.33,0.33" class="Grid__CellBox-sc-6b10767f-0 gIkeIB">
+                    <div role="button" tabindex="0" class="Box__BoxElement-sc-9529e829-0 bjkomQ BoxButton-sc-155631a2-0 bSUoRr">
+                        <div class="Padding-sc-bf66b591-0 jWFEta">
+                            <div style="max-width:254px;margin:auto" class="Box__BoxElement-sc-9529e829-0 bjkomQ">
+                                <div class="sc-90a8b765-0 bJRGfI"><img loading="lazy" decoding="async" src="https://www.trulia.com/images/icons/txl3/illustrations/Neighborhoods.svg" alt="" class="Image__ImageContainer-sc-776ebfb1-0 cvQlys" /></div><h4 style="margin:0 0 8px 0" align="center"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 eCzGjR gtvmjT">See neighborhoods</div></h4>
+                                <div style="text-align:center" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 cYrgQP gtvmjT">With more neighborhood insights than any other real estate website, we&#x27;ve captured the color and diversity of communities.</div>
+                                <div class="Padding-sc-bf66b591-0 bBIJOS"><a href="/neighborhoods/" style="margin:auto;display:block;width:175px" class="ButtonBase-sc-ca7e2680-0 PrimaryButton-sc-d1dba674-0 cNJlGF fZURYe">Learn more</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><div class="Padding-sc-bf66b591-0 gaFdYr">
+        <div style="overflow:visible" class="FlexContainers__Rows-sc-d0e49f72-0 cqtAIt">
+            <div class="FlexContainers__Row-sc-d0e49f72-1 hYsskf"><h3 style="margin:0 0 8px 0" align="center"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 ewcDjf gtvmjT"><div class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 bzzQyw gtvmjT">Check out a neighborhood</div></div></h3></div><div class="sc-f94b7230-0 WSpdi">
+                <div color="default" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 laeVWx gtvmjT">
+                    <div color="default" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 laeVWx gtvmjT">
+                        <div class="sc-f94b7230-1 dRmnD">
+                            <div class="horizontalContainer" style="width:100%;height:100%">
+                                <div style="flex:1;height:100%" data-auto-test-id="searchAutosuggest">
+                                    <div tabindex="-1" class="LocationAutosuggestDrodown__LocationAutosuggestBoxContainer-sc-1bb12592-3 dCMbJH">
+                                        <div class="react-autosuggest__container">
+                                            <div class="AutosuggestInput__MainContainer-sc-e8042cbf-2">
+                                                <div class="FlexContainers__Columns-sc-d0e49f72-2 iKQvjL">
+                                                    <div class="AutosuggestInput__InputContainer-sc-e8042cbf-1 eRizhk">
+                                                        <input data-testid="location-search-input" type="text" autoComplete="off" role="combobox" aria-controls="react-autowhatever-home-bottom" aria-expanded="false" aria-owns="react-autowhatever-home-bottom" class="AutosuggestInput__Input-sc-e8042cbf-0 kBIHyV react-autosuggest__input" placeholder="Search for City, Neighborhood, Zip, County, School" name="location-search" aria-label="Search for City, Neighborhood, Zip, County, School" id="neighborhood-search" value="" />
+                                                        <div role="button" tabindex="0" aria-label="clear search" data-testid="location-search-clear" value="" class="AutosuggestInput__RightInnerIcon-sc-e8042cbf-3 ehkKVh">
+                                                            <div class="getUiSvgContainer__SvgContainer-sc-3c9612d7-0 buYXAY"><svg role="img" aria-label="" aria-hidden="true" class="svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M27.816 25.935l-1.881 1.88-21.83-21.83 1.88-1.88 21.83 21.83zm-1.881-21.83l1.88 1.88-21.83 21.83-1.88-1.88 21.83-21.83z" fill="#869099"></path></svg></div>
+                                                        </div><div role="button" aria-label="submit search" data-testid="location-search-button" tabindex="0" class="Box__BoxElement-sc-9529e829-0 bjkomQ BoxButton-sc-155631a2-0 AutosuggestInput__RightIcon-sc-e8042cbf-5 bSUoRr jEgIuP">
+                                                            <div class="getUiSvgContainer__SvgContainer-sc-3c9612d7-0 eRiUtW">
+                                                                <svg role="img" aria-label="" aria-hidden="true" class="svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M20.756 18.876l6.155 6.154-1.88 1.881-6.155-6.155A9.269 9.269 0 0 1 13.3 22.61a9.31 9.31 0 1 1 9.31-9.31c0 2.091-.69 4.021-1.854 5.576zM13.3 19.95a6.65 6.65 0 1 0 0-13.3 6.65 6.65 0 0 0 0 13.3z" fill="#869099"></path>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><div id="react-autowhatever-home-bottom" class="AutosuggestDropdown__LocationAutosuggestDropdown-sc-d7b5939c-0 fVrUmR react-autosuggest__suggestions-container"><div class="AutosuggestDropdown__ScrollContainer-sc-d7b5939c-1 fLTqSg"></div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+    <div style="color:rgb(5, 34, 134)" class="Text__TextBase-sc-27a633b1-0-div Text__TextContainerBase-sc-27a633b1-1 fGztLo gtvmjT">
+        <div align="center" class="FlexContainers__Columns-sc-d0e49f72-2 sc-72621c81-1 gKWDQT jhyZaE">
+            <div class="FlexContainers__Column-sc-d0e49f72-3 flxLmZ">discover</div><img loading="lazy" decoding="async" src="https://www.trulia.com/images/icons/txl3/LocationLincolnIcon.svg" alt="" class="Image__ImageContainer-sc-776ebfb1-0 cmEWkZ getSvgContainer__StyledImage-sc-8b93bed-1 lcWaQP" />
+            <div class="FlexContainers__Column-sc-d0e49f72-3 flxLmZ">a place</div><img loading="lazy" decoding="async" src="https://www.trulia.com/images/icons/txl3/TownHouseIcon.svg" alt="" class="Image__ImageContainer-sc-776ebfb1-0 cmEWkZ getSvgContainer__StyledImage-sc-8b93bed-1 lcWaQP" />
+            <div class="FlexContainers__Column-sc-d0e49f72-3 flxLmZ">you&#x27;ll love</div>
+            <div class="getUiSvgContainer__SvgContainer-sc-3c9612d7-0 frHTHg">
+                <svg role="img" aria-label="" aria-hidden="true" class="svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.157 6.31A7.874 7.874 0 1 1 27.3 17.433l-1.913 1.912-9.254 9.254-1.88-1.88-7.373-7.374-1.91-1.91a7.874 7.874 0 1 1 11.137-11.13l.027.025.022-.022z" fill="#869099"></path>
+                </svg>
+            </div><div class="FlexContainers__Column-sc-d0e49f72-3 flxLmZ">to live</div>
+        </div>
+    </div>
+
+
+</div>
+<div style="display:none"></div>
+</div>

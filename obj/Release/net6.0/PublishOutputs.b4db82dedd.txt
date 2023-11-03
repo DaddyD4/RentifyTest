@@ -1,0 +1,8 @@
+C:\Users\HP-PC\source\repos\rentify\obj\Release\net6.0\PubTmp\Out\images\Rentifylogo.png
+C:\Users\HP-PC\source\repos\rentify\obj\Release\net6.0\PubTmp\Out\rentify.exe
+C:\Users\HP-PC\source\repos\rentify\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
+C:\Users\HP-PC\source\repos\rentify\obj\Release\net6.0\PubTmp\Out\appsettings.json
+C:\Users\HP-PC\source\repos\rentify\obj\Release\net6.0\PubTmp\Out\rentify.dll
+C:\Users\HP-PC\source\repos\rentify\obj\Release\net6.0\PubTmp\Out\rentify.deps.json
+C:\Users\HP-PC\source\repos\rentify\obj\Release\net6.0\PubTmp\Out\rentify.runtimeconfig.json
+C:\Users\HP-PC\source\repos\rentify\obj\Release\net6.0\PubTmp\Out\rentify.pdb
